@@ -16,16 +16,20 @@ const createUserProfile = async (uid, userData) => {
 
 const getUserProfile = async (uid) => {
     try {
-        const userRef = db.collection("users")
-        const querySnapshot = await userRef.where("uid", "==", uid).get()
-        if (querySnapshot.empty) {
+        const doc = await db.collection("users").doc(uid).get()
+
+        if (!doc.exists) {
             return null
         }
-        return querySnapshot.docs[0].data()
+
+        return doc.data()
+
     } catch (error) {
         console.error("Error getting user profile: ", error)
+        return null
     }
 }
+
 
 module.exports = {
     createUserProfile,
