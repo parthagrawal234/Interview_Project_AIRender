@@ -4,6 +4,7 @@ import { auth } from "../services/firebase"
 import { useDispatch } from "react-redux"
 import { setAuth } from "../redux/authSlice"
 import { useNavigate, Link } from "react-router-dom"
+import { BASE_URL } from "../services/api"
 
 const Login = () => {
     const [email, setEmail] = useState("")
@@ -23,7 +24,7 @@ const Login = () => {
         const user = userCredential.user
         const token = await user.getIdToken()
 
-        const res = await fetch("http://localhost:5000/api/users/me", {
+        const res = await fetch(`${BASE_URL}/users/me`, {
             headers: {
                 Authorization: `Bearer ${token}`
             }
