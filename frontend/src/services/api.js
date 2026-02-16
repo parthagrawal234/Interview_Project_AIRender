@@ -25,7 +25,7 @@ export const createTicket = async (token, data) => {
 }
 
 export const fetchUsers = async (token) => {
-    const res = await fetch("${BASE_URL}/users", {
+    const res = await fetch(`${BASE_URL}/users`, {
         headers: {
             Authorization: `Bearer ${token}`
         }
