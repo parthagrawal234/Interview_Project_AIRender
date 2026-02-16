@@ -2,15 +2,15 @@ const { db } = require("../firebase/admin")
 
 const createUserProfile = async (uid, userData) => {
     try {
-        const userRef = db.collection("users")
-        await userRef.doc(uid).set({
-            uid,
+        await db.collection("users").doc(uid).set({
             ...userData,
-            createdAt: admin.firestore.FieldValue.serverTimestamp(),
-            isActive: true,
+            createdAt: new Date(),
+            isActive: true
         })
+
     } catch (error) {
-        console.error("Error creating user profile: ", error)
+        console.error("Error creating user profile:", error)
+        throw error
     }
 }
 
@@ -25,11 +25,10 @@ const getUserProfile = async (uid) => {
         return doc.data()
 
     } catch (error) {
-        console.error("Error getting user profile: ", error)
-        return null
+        console.error("Error getting user profile:", error)
+        throw error
     }
 }
-
 
 module.exports = {
     createUserProfile,

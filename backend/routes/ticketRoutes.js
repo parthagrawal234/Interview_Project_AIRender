@@ -17,15 +17,28 @@ const {
 router.post("/", authenticateUser, checkManager, async (req, res) => {
     const { title, description, priority } = req.body
 
+    if (!title || !description || !priority) {
+        return res.status(400).json({
+            message: "Title, description and priority are required"
+        })
+    }
+
+    if (title.trim().length < 3) {
+        return res.status(400).json({
+            message: "Title must be at least 3 characters"
+        })
+    }
+
     const ticket = await createTicket({
-        title,
-        description,
+        title: title.trim(),
+        description: description.trim(),
         priority,
         createdBy: req.user.uid
     })
 
     res.json(ticket)
 })
+
 
 // 🔥 Get all tickets (Authenticated users)
 router.get("/", authenticateUser, async (req, res) => {
