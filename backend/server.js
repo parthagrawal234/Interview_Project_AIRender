@@ -9,7 +9,13 @@ const ticketRoutes = require("./routes/ticketRoutes")
 const app = express()
 
 // 🔥 Middleware
-app.use(cors())
+app.use(cors({
+    origin: [
+        "http://localhost:5173",
+        "https://interview-project-ai-render.vercel.app/"
+    ],
+    credentials: true
+}))
 app.use(express.json())
 
 // 🔥 Health check route (for testing)
