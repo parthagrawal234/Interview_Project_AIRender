@@ -12,8 +12,9 @@ const app = express()
 app.use(cors({
     origin: [
         "http://localhost:5173",
-        "https://interview-project-ai-render.vercel.app/"
+        "https://interview-project-ai-render.vercel.app"
     ],
+    methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true
 }))
 app.use(express.json())
