@@ -25,7 +25,7 @@ export const createTicket = async (token, data) => {
 }
 
 export const fetchUsers = async (token) => {
-    const res = await fetch("http://localhost:5000/api/users", {
+    const res = await fetch("${BASE_URL}/users", {
         headers: {
             Authorization: `Bearer ${token}`
         }
@@ -36,7 +36,7 @@ export const fetchUsers = async (token) => {
 
 export const assignTicket = async (token, ticketId, userId) => {
     const res = await fetch(
-        `http://localhost:5000/api/tickets/${ticketId}/assign`,
+        `${BASE_URL}/tickets/${ticketId}/assign`,
         {
             method: "PUT",
             headers: {
@@ -51,7 +51,7 @@ export const assignTicket = async (token, ticketId, userId) => {
 }
 export const updateTicketStatus = async (token, ticketId, updates) => {
     const res = await fetch(
-        `http://localhost:5000/api/tickets/${ticketId}`,
+        `${BASE_URL}/tickets/${ticketId}`,
         {
             method: "PUT",
             headers: {
@@ -66,7 +66,7 @@ export const updateTicketStatus = async (token, ticketId, updates) => {
 }
 export const fetchComments = async (token, ticketId) => {
     const res = await fetch(
-        `http://localhost:5000/api/comments/${ticketId}`,
+        `${BASE_URL}/comments/${ticketId}`,
         {
             headers: {
                 Authorization: `Bearer ${token}`
@@ -79,7 +79,7 @@ export const fetchComments = async (token, ticketId) => {
 
 export const addComment = async (token, ticketId, message) => {
     const res = await fetch(
-        `http://localhost:5000/api/comments/${ticketId}`,
+        `${BASE_URL}/comments/${ticketId}`,
         {
             method: "POST",
             headers: {
