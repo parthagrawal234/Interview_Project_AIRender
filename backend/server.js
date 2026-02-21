@@ -5,6 +5,7 @@ require("dotenv").config()
 // Import routes
 const userRoutes = require("./routes/userRoutes")
 const ticketRoutes = require("./routes/ticketRoutes")
+const commentRoutes = require("./routes/commentRoutes")
 
 const app = express()
 
@@ -27,6 +28,7 @@ app.get("/", (req, res) => {
 // 🔥 Routes
 app.use("/api/users", userRoutes)
 app.use("/api/tickets", ticketRoutes)
+app.use("/api/comments", commentRoutes)
 
 // 🔥 Start server
 const PORT = process.env.PORT || 5000
