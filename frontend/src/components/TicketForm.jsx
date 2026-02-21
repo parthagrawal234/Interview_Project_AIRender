@@ -48,61 +48,63 @@ const TicketForm = () => {
     return (
         <form
             onSubmit={handleSubmit}
-            className="bg-white p-6 rounded-2xl shadow-lg mb-8 space-y-5 border border-gray-200"
+            className="bg-[#10B981] p-8 rounded-[2rem] mb-8 space-y-6 border-8 border-black shadow-[12px_12px_0_0_#fff] relative overflow-hidden"
         >
-            <h3 className="text-xl font-semibold text-gray-800">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-white rounded-full mix-blend-overlay opacity-20 -translate-y-1/2 translate-x-1/3"></div>
+
+            <h3 className="text-3xl font-black text-black uppercase tracking-tighter">
                 Create Ticket
             </h3>
 
             {error && (
-                <div className="bg-red-50 border border-red-400 text-red-600 px-4 py-2 rounded-lg text-sm font-medium">
+                <div className="bg-[#FF4500] border-4 border-black text-black px-4 py-3 rounded-xl text-lg font-black uppercase shadow-[4px_4px_0_0_#fff]">
                     {error}
                 </div>
             )}
 
             <div>
-                <label className="block text-sm font-medium text-gray-600 mb-1">
+                <label className="block text-xl font-black text-black mb-2 uppercase">
                     Title
                 </label>
                 <input
                     type="text"
-                    className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"
+                    className="w-full bg-white border-4 border-black rounded-xl px-4 py-3 text-black font-bold focus:outline-none focus:ring-0 focus:bg-gray-100 transition shadow-[4px_4px_0_0_rgba(0,0,0,1)] hover:shadow-[2px_2px_0_0_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px]"
                     value={title}
                     onChange={(e) => setTitle(e.target.value)}
                 />
             </div>
 
             <div>
-                <label className="block text-sm font-medium text-gray-600 mb-1">
+                <label className="block text-xl font-black text-black mb-2 uppercase">
                     Description
                 </label>
                 <textarea
-                    className="w-full border border-gray-300 rounded-lg px-3 py-2 h-24 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"
+                    className="w-full bg-white border-4 border-black rounded-xl px-4 py-3 h-32 text-black font-bold focus:outline-none focus:ring-0 focus:bg-gray-100 transition shadow-[4px_4px_0_0_rgba(0,0,0,1)] hover:shadow-[2px_2px_0_0_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px]"
                     value={description}
                     onChange={(e) => setDescription(e.target.value)}
                 />
             </div>
 
             <div>
-                <label className="block text-sm font-medium text-gray-600 mb-1">
+                <label className="block text-xl font-black text-black mb-2 uppercase">
                     Priority
                 </label>
                 <select
-                    className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"
+                    className="w-full bg-white border-4 border-black rounded-xl px-4 py-3 text-black font-black uppercase tracking-wider focus:outline-none focus:ring-0 shadow-[4px_4px_0_0_rgba(0,0,0,1)] cursor-pointer hover:bg-gray-100 transition"
                     value={priority}
                     onChange={(e) => setPriority(e.target.value)}
                 >
-                    <option>Low</option>
-                    <option>Medium</option>
-                    <option>High</option>
+                    <option value="Low">Low</option>
+                    <option value="Medium">Medium</option>
+                    <option value="High">High</option>
                 </select>
             </div>
 
             <button
                 type="submit"
-                className="w-full bg-blue-600 text-white py-2 rounded-lg font-medium hover:bg-blue-700 transition"
+                className="w-full bg-black text-white text-2xl py-4 rounded-xl font-black uppercase tracking-widest hover:bg-gray-900 transition border-4 border-transparent hover:border-white shadow-[8px_8px_0_0_#fff] hover:shadow-[4px_4px_0_0_#fff] hover:translate-x-[4px] hover:translate-y-[4px]"
             >
-                Create Ticket
+                Submit
             </button>
         </form>
 

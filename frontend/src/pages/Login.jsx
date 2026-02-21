@@ -46,36 +46,48 @@ const Login = () => {
     }
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-gray-100">
-            <div className="bg-white shadow-lg rounded-xl p-8 w-96">
-                <h2 className="text-2xl font-bold mb-6 text-center">Login</h2>
+        <div className="min-h-screen flex items-center justify-center bg-gray-900 mesh-bg overflow-hidden relative">
+            {/* The Full Page Black Slide Reveal */}
+            <div className="page-reveal"></div>
 
-                <form onSubmit={handleLogin} className="space-y-4">
-                    <input
-                        type="email"
-                        placeholder="Email"
-                        className="w-full border rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
-                        onChange={(e) => setEmail(e.target.value)}
-                    />
+            <div className="bg-white/90 backdrop-blur-xl rounded-[2rem] vibrant-shadow p-10 w-full max-w-md animate-pop-in relative z-10 border border-white/40">
+                <div className="animate-pop-in stagger-1">
+                    <h2 className="text-4xl font-extrabold mb-2 text-center text-vibrant-glow uppercase tracking-tighter">Welcome Back</h2>
+                    <p className="text-center font-bold text-gray-600 mb-8 text-sm">Sign in to continue.</p>
+                </div>
 
-                    <input
-                        type="password"
-                        placeholder="Password"
-                        className="w-full border rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
-                        onChange={(e) => setPassword(e.target.value)}
-                    />
+                <form onSubmit={handleLogin} className="space-y-5">
+                    <div className="animate-pop-in stagger-2">
+                        <input
+                            type="email"
+                            placeholder="Email"
+                            className="w-full bg-white/50 backdrop-blur-md border-[3px] border-gray-100 rounded-2xl p-4 text-gray-900 font-bold placeholder-gray-400 focus:outline-none focus:ring-4 focus:ring-blue-500/50 focus:border-blue-500 hover:border-blue-300 transition-all duration-300"
+                            onChange={(e) => setEmail(e.target.value)}
+                        />
+                    </div>
 
-                    <button
-                        type="submit"
-                        className="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition"
-                    >
-                        Login
-                    </button>
+                    <div className="animate-pop-in stagger-3">
+                        <input
+                            type="password"
+                            placeholder="Password"
+                            className="w-full bg-white/50 backdrop-blur-md border-[3px] border-gray-100 rounded-2xl p-4 text-gray-900 font-bold placeholder-gray-400 focus:outline-none focus:ring-4 focus:ring-purple-500/50 focus:border-purple-500 hover:border-purple-300 transition-all duration-300"
+                            onChange={(e) => setPassword(e.target.value)}
+                        />
+                    </div>
+
+                    <div className="animate-pop-in stagger-4 pt-4">
+                        <button
+                            type="submit"
+                            className="w-full bg-black text-white text-lg font-black uppercase tracking-wider py-4 rounded-2xl hover:bg-gray-800 transition duration-300 shadow-[0_10px_20px_rgba(0,0,0,0.3)] hover:shadow-none hover:translate-y-1"
+                        >
+                            Login
+                        </button>
+                    </div>
                 </form>
 
-                <p className="text-sm mt-4 text-center">
+                <p className="text-sm mt-8 pb-2 text-center font-bold text-gray-600 animate-pop-in stagger-5">
                     Don’t have an account?{" "}
-                    <Link to="/signup" className="text-blue-500 hover:underline">
+                    <Link to="/signup" className="text-pink-600 hover:text-blue-600 transition-colors duration-300">
                         Sign up
                     </Link>
                 </p>

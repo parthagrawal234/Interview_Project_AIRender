@@ -24,8 +24,8 @@ router.post("/", authenticateUser, async (req, res) => {
   }
 })
 
-// Get all users (Manager only)
-router.get("/", authenticateUser, checkManager, async (req, res) => {
+// Get all users
+router.get("/", authenticateUser, async (req, res) => {
   const snapshot = await db.collection("users").get()
 
   const users = snapshot.docs.map(doc => ({
